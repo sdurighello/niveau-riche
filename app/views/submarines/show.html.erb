@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @submarine.name %>
+</p>
+
+<p>
+  <strong>Type submarine:</strong>
+  <%= @submarine.type_submarine %>
+</p>
+
+<p>
+  <strong>Price day:</strong>
+  <%= @submarine.price_day %>
+</p>
+
+<p>
+  <strong>Image url:</strong>
+  <%= @submarine.image_url %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @submarine.description %>
+</p>
+
+<p>
+  <strong>Max number of guests:</strong>
+  <%= @submarine.max_number_of_guests %>
+</p>
+
+<p>
+  <strong>Port:</strong>
+  <%= @submarine.port %>
+</p>
+
+<%= link_to 'Edit', edit_submarine_path(@submarine) %> |
+<%= link_to 'Back', submarines_path %>

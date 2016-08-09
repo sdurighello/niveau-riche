@@ -1,0 +1,1 @@
+json.partial! "submarines/submarine", submarine: @submarine

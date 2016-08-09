@@ -1,0 +1,1 @@
+json.array! @submarines, partial: 'submarines/submarine', as: :submarine

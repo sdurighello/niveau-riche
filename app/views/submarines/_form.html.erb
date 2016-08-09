@@ -1,0 +1,52 @@
+<%= form_for(submarine) do |f| %>
+  <% if submarine.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(submarine.errors.count, "error") %> prohibited this submarine from being saved:</h2>
+
+      <ul>
+      <% submarine.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :type_submarine %>
+    <%= f.text_field :type_submarine %>
+  </div>
+
+  <div class="field">
+    <%= f.label :price_day %>
+    <%= f.number_field :price_day %>
+  </div>
+
+  <div class="field">
+    <%= f.label :image_url %>
+    <%= f.text_field :image_url %>
+  </div>
+
+  <div class="field">
+    <%= f.label :description %>
+    <%= f.text_area :description %>
+  </div>
+
+  <div class="field">
+    <%= f.label :max_number_of_guests %>
+    <%= f.number_field :max_number_of_guests %>
+  </div>
+
+  <div class="field">
+    <%= f.label :port_id %>
+    <%= f.text_field :port_id %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
