@@ -3,7 +3,7 @@ class BookingsController < ApplicationController
 
   # homepage
   def homepage
-    render homepage
+    render 'homepage'
   end
 
   # GET /bookings
