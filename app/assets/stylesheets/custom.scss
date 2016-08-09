@@ -1,0 +1,21 @@
+.homepage-jumbotron {
+  background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url("https://i.ytimg.com/vi/oxrboqPWKS8/maxresdefault.jpg");
+  min-height: 60vh;
+  padding-top: 40px;
+  padding-bottom: 60px;
+  color: white;
+  text-shadow: black 0.5em 0.5em 0.5em;
+}
+
+.button-transparent {
+  background-color: transparent;
+  border: 2px solid white;
+  color: white;
+}
+
+.homepage-band {
+    background-color: black;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    color: white;
+}
