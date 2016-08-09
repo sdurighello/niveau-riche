@@ -12,8 +12,8 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :submarine_id %>
-    <%= f.text_field :submarine_id %>
+    <%= f.label :submarine  %>
+    <%= f.collection_select :submarine_id, Submarine.order(:name),:id,:name, include_blank: true %>
   </div>
 
   <div class="field">

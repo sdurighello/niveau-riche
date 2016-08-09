@@ -41,9 +41,9 @@
     <%= f.number_field :max_number_of_guests %>
   </div>
 
-  <div class="field">
-    <%= f.label :port_id %>
-    <%= f.text_field :port_id %>
+  <div class="field form-control">
+    <%= f.label :port  %>
+    <%= f.collection_select :port_id, Port.order(:name),:id,:name, include_blank: true %>
   </div>
 
   <div class="actions">
