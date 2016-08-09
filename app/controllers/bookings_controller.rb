@@ -1,6 +1,11 @@
 class BookingsController < ApplicationController
   before_action :set_booking, only: [:show, :edit, :update, :destroy]
 
+  # homepage
+  def homepage
+    render homepage
+  end
+
   # GET /bookings
   # GET /bookings.json
   def index
