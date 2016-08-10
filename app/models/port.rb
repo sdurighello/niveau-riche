@@ -8,4 +8,7 @@ class Port < ApplicationRecord
     end
   end
 
+  def check_availability
+  end
+
 end
