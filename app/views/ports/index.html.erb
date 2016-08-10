@@ -28,12 +28,16 @@
     </div>
   </div>
 </div>
+<form action="bookings/" method="post">
+  <input name="test_form" type="hidden" value="{port: "Amsterdam", start_at: Date.new(2016, 10, 1), end_at: Date.new(2016, 10, 7)}" />
+  <input name="submit_test" type="submit" value="Submit test booking" />
+</form>
 <div class="row homepage-band center-block">
   <div class="col-xs-12">
     <div class="">
       <form class="form">
         <div class="col-xs-3">
-          <input type="text" class="form-control" placeholder="Choose port">
+          <input type="text" class="form-control" placeholder="Port">
         </div>
         <div class="col-xs-2">
           <input type="text" class="form-control" placeholder="From">
