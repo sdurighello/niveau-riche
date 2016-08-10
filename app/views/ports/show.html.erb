@@ -1,19 +1,26 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @port.name %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @port.description %>
-</p>
-
-<p>
-  <strong>Image url:</strong>
-  <%= @port.image_url %>
-</p>
-
-<%= link_to 'Edit', edit_port_path(@port) %> |
-<%= link_to 'Back', ports_path %>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <h1><%= @port.name %></h1>
+      <p><%= @port.description %></p>
+    </div>
+  </div>
+  <hr>
+  <h3>Submarines in this port</h3>
+  <div class="row">
+    <% @port.submarines.each do |submarine| %>
+      <div class="col-md-4 col-sm-6">
+        <div class="panel panel-default">
+          <%= image_tag(submarine.image_url, {class: "center-block", style:"width: 100%; height: auto"}) %>
+          <%= link_to 'Show',  controller: "submarines", action: "show", id: submarine.id %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="class-xs-12">
+      <%= link_to 'Home', homepage_path, {class: "btn btn-default"} %>
+    </div>
+  </div>
+</div>

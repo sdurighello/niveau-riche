@@ -1,52 +1,73 @@
-<%= form_for(submarine) do |f| %>
-  <% if submarine.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(submarine.errors.count, "error") %> prohibited this submarine from being saved:</h2>
+<div class="container">
+  <div class="form">
+    <%= form_for(submarine) do |f| %>
+      <% if submarine.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(submarine.errors.count, "error") %> prohibited this submarine from being saved:</h2>
 
-      <ul>
-      <% submarine.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+          <ul>
+          <% submarine.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
 
-  <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-  </div>
+      <div class="row">
+        <div class="col-xs-4 form-group">
+          <div class="form-label"><%= f.label :name %></div>
+          <input type="text" class="form-control" name="submarine[name]">
+        </div>
+      </div>
 
-  <div class="field">
-    <%= f.label :type_submarine %>
-    <%= f.text_field :type_submarine %>
-  </div>
+      <div class="row">
+        <div class="col-xs-4 form-group">
+          <div class="form-label"><%= f.label :type_submarine %></div>
+          <input type="text" class="form-control" name="submarine[type_submarine]">
+        </div>
+      </div>
 
-  <div class="field">
-    <%= f.label :price_day %>
-    <%= f.number_field :price_day %>
-  </div>
+      <div class="row">
+        <div class="col-xs-4 form-group">
+          <div class="form-label"><%= f.label :price_day %></div>
+          <input type="number" class="form-control" name="submarine[price_day]">
+        </div>
+      </div>
 
-  <div class="field">
-    <%= f.label :image_url %>
-    <%= f.text_field :image_url %>
-  </div>
+      <div class="row">
+        <div class="col-xs-4 form-group">
+          <div class="form-label"><%= f.label :max_number_of_guests %></div>
+          <input type="number" class="form-control" name="submarine[max_number_of_guests]">
+        </div>
+      </div>
 
-  <div class="field">
-    <%= f.label :description %>
-    <%= f.text_area :description %>
-  </div>
+      <div class="row">
+        <div class="col-xs-4 form-group">
+          <div class="form-label"><%= f.label :description %></div>
+          <input class="form-control" name="submarine[description]" type="text" />
+        </div>
+      </div>
 
-  <div class="field">
-    <%= f.label :max_number_of_guests %>
-    <%= f.number_field :max_number_of_guests %>
-  </div>
+      <div class="row">
+        <div class="col-xs-4 form-group">
+          <div class="form-label"><%= f.label :image_url %></div>
+          <input class="form-control" name="submarine[image_url]" type="text" />
+        </div>
+      </div>
 
-  <div class="field form-control">
-    <%= f.label :port  %>
-    <%= f.collection_select :port_id, Port.order(:name),:id,:name, include_blank: true %>
-  </div>
+      <div class="row">
+        <div class="col-xs-4 form-group">
+          <div class="form-label"><%= f.label :port %></div>
+          <div class="form-control">
+            <%= f.collection_select :port_id, Port.order(:name),:id,:name, include_blank: true %>
+          </div>
+        </div>
+      </div>
 
-  <div class="actions">
-    <%= f.submit %>
+      <div class="btn btn-primary btn-sm">
+        <%= f.submit %>
+      </div>
+
+    <% end %>
   </div>
-<% end %>
+</div>

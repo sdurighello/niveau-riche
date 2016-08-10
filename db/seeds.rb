@@ -15,28 +15,28 @@ port_amsterdam = Port.create(
   description: %{
     This is a beautiful city
   },
-  image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/RijksmuseumAmsterdamMuseumplein2.50%2C1.jpg/1920px-RijksmuseumAmsterdamMuseumplein2.50%2C1.jpg"
+  image_url: "https://thumbs.dreamstime.com/z/night-canal-amsterdam-beautiful-view-sunset-brouwersgracht-netherlands-unesco-world-heritage-site-30646148.jpg"
 )
 port_miami = Port.create(
   name: "Miami",
   description: %{
     This is a beautiful city
   },
-  image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/RijksmuseumAmsterdamMuseumplein2.50%2C1.jpg/1920px-RijksmuseumAmsterdamMuseumplein2.50%2C1.jpg"
+  image_url: "http://l7.alamy.com/zooms/48ae8014786146c899765bc25e7060cd/high-rise-buildings-over-miami-harbor-at-night-florida-united-states-fc87pg.jpg"
 )
 port_sydney = Port.create(
   name: "Sydney",
   description: %{
     This is a beautiful city
   },
-  image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/RijksmuseumAmsterdamMuseumplein2.50%2C1.jpg/1920px-RijksmuseumAmsterdamMuseumplein2.50%2C1.jpg"
+  image_url: "https://media-cdn.tripadvisor.com/media/photo-s/02/26/68/dd/sydney-opera-house.jpg"
 )
 port_hong_kong = Port.create(
   name: "Hong Kong",
   description: %{
     This is a beautiful city
   },
-  image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/RijksmuseumAmsterdamMuseumplein2.50%2C1.jpg/1920px-RijksmuseumAmsterdamMuseumplein2.50%2C1.jpg"
+  image_url: "http://cache-graphicslib.viator.com/graphicslib/thumbs674x446/3675/SITours/hong-kong-harbor-night-cruise-and-dinner-at-victoria-peak-in-hong-kong-114436.jpg"
 )
 
 # Submarines

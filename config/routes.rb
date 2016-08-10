@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root 'bookings#homepage'
+  root 'ports#index', as: :homepage
 
   # Bookings routes
   resources :bookings

@@ -1,32 +1,45 @@
-<%= form_for(port) do |f| %>
-  <% if port.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(port.errors.count, "error") %> prohibited this port from being saved:</h2>
+<div class="container">
+  <div class="form">
 
-      <ul>
-      <% port.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+    <%= form_for(port) do |f| %>
+      <% if port.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(port.errors.count, "error") %> prohibited this port from being saved:</h2>
+
+          <ul>
+          <% port.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
 
-  <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-  </div>
+      <div class="row">
+        <div class="col-xs-4 form-group">
+          <div class="form-label"><%= f.label :name %></div>
+          <input type="text" class="form-control" name="port[name]">
+        </div>
+      </div>
 
-  <div class="field">
-    <%= f.label :description %>
-    <%= f.text_area :description %>
-  </div>
+      <div class="row">
+        <div class="col-xs-4 form-group">
+          <div class="form-label"><%= f.label :description %></div>
+          <input class="form-control" name="port[description]" type="text" />
+        </div>
+      </div>
 
-  <div class="field">
-    <%= f.label :image_url %>
-    <%= f.text_field :image_url %>
-  </div>
+      <div class="row">
+        <div class="col-xs-4 form-group">
+          <div class="form-label"><%= f.label :image_url %></div>
+          <input class="form-control" name="port[image_url]" type="text" />
+        </div>
+      </div>
 
-  <div class="actions">
-    <%= f.submit %>
+      <div class="btn btn-primary btn-sm">
+        <%= f.submit %>
+      </div>
+
+    <% end %>
+
   </div>
-<% end %>
+</div>
