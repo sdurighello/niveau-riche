@@ -60,7 +60,7 @@
       <div class="col-md-4 col-sm-6">
         <div class="panel panel-default">
           <%= image_tag(port.image_url, {class: "center-block", style:"width: 100%; height: auto"}) %>
-          <%= link_to 'Show',  controller: "ports", action: "show", id: port.id %>
+          <%= link_to "Show #{port.name}",  controller: "ports", action: "show", id: port.id %>
         </div>
       </div>
     <% end %>
