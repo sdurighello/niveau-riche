@@ -26,15 +26,18 @@ class Port < ApplicationRecord
       bookings.each do |booking|
         if booking.start_at < desired_start_at && booking.end_at > desired_start_at
           sub_free = false
+          break
         elsif booking.start_at < desired_end_at && booking.end_at > desired_end_at
           sub_free = false
+          break
         elsif booking.start_at > desired_start_at && booking.end_at < desired_end_at
           sub_free = false
+          break
         end
       end
 
-      # Check sub_free flag
-      if sub_free
+      # Check sub_free flag to be not false
+      if !(sub_free == false)
         available_submarines << submarine
       end
     end
