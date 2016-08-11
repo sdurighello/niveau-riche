@@ -7,6 +7,19 @@ class BookingsController < ApplicationController
     @bookings = Booking.all
   end
 
+  # POST /bookings/summary
+  def summary
+    submarine = Submarine.find(params[:submarine_id])
+    start_at = params[:start_at].to_date
+    end_at = params[:end_at].to_date
+    @booking = Booking.new(
+    submarine_id: submarine.id,
+    start_at: start_at,
+    end_at: end_at,
+    total_price: submarine.price_day * (end_at - start_at).to_i
+    )
+  end
+
   # GET /bookings/1
   # GET /bookings/1.json
   def show

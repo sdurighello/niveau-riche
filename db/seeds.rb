@@ -54,14 +54,14 @@ submarine_amsterdam1 = Submarine.create(
 )
 
 submarine_amsterdam2 = Submarine.create(
-  name: "SS John Lennon",
+  name: "SS Ringo Star",
   type_submarine: "oberon",
   description: %{
     This is the description
   },
   image_url: "http://www.uboataces.com/gallery/images/20104411552674670ax.jpg",
-  price_day: 1800,
-  max_number_of_guests: 12,
+  price_day: 1900,
+  max_number_of_guests: 14,
   port: port_amsterdam
 )
 

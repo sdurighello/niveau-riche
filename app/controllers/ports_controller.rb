@@ -37,6 +37,15 @@ class PortsController < ApplicationController
     end
   end
 
+  # POST /ports/test_availability
+  def available_submarines
+    @port = Port.find(params[:port][:id])
+    @desired_start_at = Date.civil(params[:desired_start_at][:year].to_i, params[:desired_start_at][:month].to_i, params[:desired_start_at][:day].to_i)
+    @desired_end_at = Date.civil(params[:desired_end_at][:year].to_i, params[:desired_start_at][:month].to_i, params[:desired_start_at][:day].to_i)
+
+    @submarines = @port.check_available_submarines(@port, @desired_start_at, @desired_end_at)
+  end
+
   # PATCH/PUT /ports/1
   # PATCH/PUT /ports/1.json
   def update

@@ -28,12 +28,22 @@
     </div>
   </div>
 </div>
+<%= form_tag("/ports/test_availability", method: "post") do %>
+  Port: <%= select("port", "id", Port.all.collect {|p| [ p.name, p.id ] }, {include_blank: '--select departure port'}, :required => true) %>
+  <!-- <%= text_field_tag(:desired_port) %> -->
+  Start date: <%= select_date Date.today, prefix: :desired_start_at %>
+  <!-- <%= text_field_tag(:desired_start_at) %> -->
+  End date: <%= select_date Date.today, prefix: :desired_end_at %>
+  <!-- <%= text_field_tag(:desired_end_at) %> -->
+  Number of guests: <%= text_field_tag(:desired_num_guests) %>
+  <%= submit_tag("Test Search") %>
+<% end %>
 <div class="row homepage-band center-block">
   <div class="col-xs-12">
     <div class="">
       <form class="form">
         <div class="col-xs-3">
-          <input type="text" class="form-control" placeholder="Choose port">
+          <input type="text" class="form-control" placeholder="Port">
         </div>
         <div class="col-xs-2">
           <input type="text" class="form-control" placeholder="From">
