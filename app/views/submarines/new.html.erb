@@ -1,5 +1,8 @@
 <h1>New Submarine</h1>
 
+<% if user_signed_in? %>
 <%= render 'form', submarine: @submarine %>
-
 <%= link_to 'Back', submarines_path %>
+<% else %>
+<%= link_to "Log In", new_user_session_path %>
+<% end %>
