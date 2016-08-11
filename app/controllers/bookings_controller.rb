@@ -4,7 +4,7 @@ class BookingsController < ApplicationController
   # GET /bookings
   # GET /bookings.json
   def index
-    @bookings = Booking.all
+      @bookings = Booking.all
   end
 
   # POST /bookings/summary
@@ -33,6 +33,8 @@ class BookingsController < ApplicationController
   # GET /bookings/1/edit
   def edit
   end
+
+
 
   # POST /bookings
   # POST /bookings.json
