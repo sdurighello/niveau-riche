@@ -37,6 +37,12 @@ class PortsController < ApplicationController
     end
   end
 
+  # POST /ports/test_availability
+  def available_submarines
+    port = Port.find_by(name: params[:desired_port])
+    @submarines = port.submarines
+  end
+
   # PATCH/PUT /ports/1
   # PATCH/PUT /ports/1.json
   def update

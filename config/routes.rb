@@ -10,5 +10,6 @@ Rails.application.routes.draw do
 
   # Ports routes
   resources :ports
+  post '/ports/test_availability', to: 'ports#available_submarines'
 
 end
