@@ -1,5 +1,15 @@
+<h1>Avalible submarines in <%= @port.name %></h1>
+<h3>From <%= @desired_start_at %> to <%= @desired_end_at %></h3>
+<hr />
+<br />
+
 <% @submarines.each do |submarine| %>
-  <p>
-    <%= submarine.name %>
-  </p>
+  <div>
+    <p>
+      <%= image_tag(submarine.image_url)%>
+    </p>
+    <p>
+      <h4><%= submarine.name %></h4>
+    </p>
+  </div><br />
 <% end %>
