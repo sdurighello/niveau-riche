@@ -42,9 +42,8 @@
 
     <div class="row">
       <div class="col-xs-12">
-        <h1>BONING IN THE OCEAN</h1>
-        <br>
-        <h3>Book submarines from local hosts in 191+ countries and experience a place from another world.</h3>
+        <h1 class="homepage-title">Niveau Riche</h1>
+        <h3 class="homepage-undertitle">Book submarines from local hosts and experience living in the ocean.</h3>
       </div>
     </div>
   </div>
@@ -88,12 +87,14 @@
 <div class="container">
   <div class="row">
     <% @ports.each do |port| %>
-      <div class="col-md-4 col-sm-6">
-        <div class="panel panel-default">
-          <%= image_tag(port.image_url, {class: "center-block", style:"width: 100%; height: auto"}) %>
-          <%= link_to "Show #{port.name}",  controller: "ports", action: "show", id: port.id %>
+      <%= link_to(controller: "ports", action: "show", id: port.id) do %>
+        <div class="col-md-4 col-sm-6">
+          <div class="panel panel-default">
+            <%= image_tag(port.image_url, {class: "center-block", style:"width: 100%; height: auto"}) %>
+            <%= port.name %>
+          </div>
         </div>
-      </div>
+      <% end %>
     <% end %>
   </div>
 </div>
