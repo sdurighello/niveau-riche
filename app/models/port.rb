@@ -12,11 +12,8 @@ class Port < ApplicationRecord
 
   # Finds available submarines for a port within a given period
   # port should be a Port object
-  # desired_start_at, desired_end_at should be strings
+  # desired_start_at, desired_end_at should be Date objects
   def check_available_submarines(port, desired_start_at, desired_end_at)
-    # Convert date strings to date objects
-    desired_start_at = Date.parse(desired_start_at)
-    desired_end_at = Date.parse(desired_end_at)
 
     # Find all submarines for a port
     submarines = port.submarines
