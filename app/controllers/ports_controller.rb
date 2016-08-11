@@ -40,7 +40,9 @@ class PortsController < ApplicationController
   # POST /ports/test_availability
   def available_submarines
     port = Port.find_by(name: params[:desired_port])
-    @submarines = port.submarines
+    desired_start_at = params[:desired_start_at]
+    desired_end_at = params[:desired_end_at]
+    @submarines = port.check_available_submarines(port, desired_start_at, desired_end_at)
   end
 
   # PATCH/PUT /ports/1
