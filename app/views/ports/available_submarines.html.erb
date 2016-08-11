@@ -1,15 +1,36 @@
-<h1>Avalible submarines in <%= @port.name %></h1>
-<h3>From <%= @desired_start_at %> to <%= @desired_end_at %></h3>
-<hr />
-<br />
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <h1>Available submarines in <%= @port.name %></h1>
+      <p><%= @port.description %></p>
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <% @submarines.each do |submarine| %>
+      <div class="col-md-4 col-sm-6">
+        <div class="panel panel-default">
 
-<% @submarines.each do |submarine| %>
-  <div>
-    <p>
-      <%= image_tag(submarine.image_url)%>
-    </p>
-    <p>
-      <h4><%= submarine.name %></h4>
-    </p>
-  </div><br />
-<% end %>
+          <div class="col-md-4 col-sm-6">
+            <div class="panel panel-default">
+              <%= image_tag(submarine.image_url, {class: "center-block", style:"width: 100%; height: auto"}) %>
+              <%= submarine.name %>
+              <%= button_to 'Summary',
+              {:controller=>"bookings", method: :post, action: 'summary', submarine_id: submarine.id,
+              start_at: @desired_start_at, end_at: @desired_end_at},
+              {class: 'btn btn-primary'}
+              %>
+            </div>
+         </div>
+         
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="class-xs-12">
+      <%= link_to 'Home', homepage_path, {class: "btn btn-default"} %>
+    </div>
+  </div>
+</div>
