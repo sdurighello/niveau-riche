@@ -2,6 +2,10 @@
 
 <br>
 
+<ol>
 <% @bookings.each do |booking| %>
-   <h4><%= booking.content %></h4>
+<li><% booking.start_at %></li>
 <% end %>
+</ol>
+
+<!-- #bookings of user, no data shown -->
