@@ -34,13 +34,16 @@ class BookingsController < ApplicationController
   def edit
   end
 
-
+  def user
+    @user = User.find(params[:user_id])
+    @bookings = Booking.where(user: @user).order(start_at: :desc)
+  end
 
   # POST /bookings
   # POST /bookings.json
   def create
     @booking = Booking.new(booking_params)
-
+    @booking.user = current_user
     respond_to do |format|
       if @booking.save
         format.html { redirect_to @booking, notice: 'Booking was successfully created.' }

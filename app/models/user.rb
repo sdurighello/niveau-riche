@@ -4,4 +4,10 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   has_many :bookings
+
+  def handle
+    self.email.split('@')[0]
+  end
+
+
 end

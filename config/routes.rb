@@ -6,7 +6,8 @@ Rails.application.routes.draw do
   # Bookings routes
   resources :bookings
   post 'bookings/summary' => 'bookings#summary'
-  
+  get 'user_booking/:user_id' => 'bookings#user', as: :user_bookings
+
   # Submarines routes
   resources :submarines
 
