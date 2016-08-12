@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
+# DEIS Ruby version
+ruby '2.3.1'
+
 # Bootstrap
 gem 'bootstrap-sass', '~> 3.3.6'
 
@@ -48,3 +51,6 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+# DEIS
+gem 'rails_12factor', group: :production
