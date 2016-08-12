@@ -3,9 +3,7 @@
 <br>
 
 <ol>
-<% @bookings.each do |booking| %>
-<li><% booking.start_at %></li>
-<% end %>
+  <% @bookings.each do |booking| %>
+    <li><%= booking.submarine %>, <%= booking.start_at %>/<%= booking.end_at %>,   €<%= booking.total_price %>,-</li>
+  <% end %>
 </ol>
-
-<!-- #bookings of user, no data shown -->
