@@ -34,13 +34,15 @@
       </div>
       &nbsp;
       <div class="form-group">
-        <div class="">
-          Start date: <%= select_date Date.today, {}, {prefix: :desired_start_at, class: 'form-control'} %>
+        <div class="form-control">
+          Start date: <%= select_date Date.today, prefix: :desired_start_at %>
         </div>
       </div>
       &nbsp;
       <div class="form-group">
-        End date: <%= select_date Date.today, {}, {prefix: :desired_end_at, class: 'form-control'} %>
+        <div class="form-control">
+          End date: <%= select_date Date.today, prefix: :desired_end_at %>
+        </div>
       </div>
       &nbsp;
       <div class="form-group">
