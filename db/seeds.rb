@@ -60,7 +60,7 @@ submarine_amsterdam1 = Submarine.create(
   image_url: "http://www.uboataces.com/gallery/images/20104411552674670ax.jpg",
   price_day: 1800,
   max_number_of_guests: 12,
-  port: port_amsterdam
+  port: port_amsterdam,
   user: user1
 )
 
@@ -73,7 +73,7 @@ submarine_amsterdam2 = Submarine.create(
   image_url: "http://www.uboataces.com/gallery/images/20104411552674670ax.jpg",
   price_day: 1900,
   max_number_of_guests: 14,
-  port: port_amsterdam
+  port: port_amsterdam,
   user: user2
 )
 
@@ -86,7 +86,7 @@ submarine_miami1 = Submarine.create(
   image_url: "http://www.uboataces.com/gallery/images/20104411552674670ax.jpg",
   price_day: 1800,
   max_number_of_guests: 12,
-  port: port_miami
+  port: port_miami,
   user: user1
 )
 
@@ -99,7 +99,7 @@ submarine_sydney1 = Submarine.create(
   image_url: "http://www.uboataces.com/gallery/images/20104411552674670ax.jpg",
   price_day: 1800,
   max_number_of_guests: 12,
-  port: port_sydney
+  port: port_sydney,
   user: user1
 )
 
@@ -112,7 +112,7 @@ submarine_hong_kong1 = Submarine.create(
   image_url: "http://www.uboataces.com/gallery/images/20104411552674670ax.jpg",
   price_day: 1800,
   max_number_of_guests: 12,
-  port: port_hong_kong
+  port: port_hong_kong,
   user: user2
 )
 
@@ -128,20 +128,20 @@ booking_amsterdam1 = Booking.create(
   submarine: submarine_amsterdam1,
   start_at: Date.new(2016, 9, 1),
   end_at: Date.new(2016, 9, 15),
-  total_price: 1800*15
+  total_price: 1800*15,
   user: user3
 )
 booking_amsterdam2 = Booking.create(
   submarine: submarine_amsterdam1,
   start_at: Date.new(2016, 9, 16),
   end_at: Date.new(2016, 9, 30),
-  total_price: 1800*15
+  total_price: 1800*15,
   user: user3
 )
 booking_amsterdam3 = Booking.create(
   submarine: submarine_amsterdam1,
   start_at: Date.new(2016, 10, 15),
   end_at: Date.new(2016, 10, 31),
-  total_price: 1800*15
+  total_price: 1800*15,
   user: user3
 )
