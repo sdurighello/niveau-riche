@@ -1,0 +1,11 @@
+<h1><%= @user.handle %></h1>
+
+<br>
+
+<ol>
+<% @bookings.each do |booking| %>
+<li><% booking.start_at %></li>
+<% end %>
+</ol>
+
+<!-- #bookings of user, no data shown -->

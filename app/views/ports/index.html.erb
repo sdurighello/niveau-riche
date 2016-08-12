@@ -1,29 +1,49 @@
 <p id="notice"><%= notice %></p>
 <div class="homepage-jumbotron">
   <div class="container text-center">
+
     <div class="row">
       <div class="col-xs-2">
 
       </div>
+
       <div class="col-xs-10">
-        <div class="form-group pull-right">
+        <nav>
+          <ul class="nav navbar-nav">
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+              <% if !user_signed_in? %>
+                  <li><%= link_to "Log In", new_user_session_path %></li>
+              <% else %>
+                  <li><span class="navbar-text"><%= current_user.email %></span></li>
+                  <li><%= link_to "My Bookings", controller: "bookings", action: "user", user_id: current_user %></li>
+                  <li><%= link_to "Become a host", new_submarine_path %></li>
+                  <li><%= link_to "Log Out", destroy_user_session_path, :method => :delete %></li>
+            <% end %>
+          </ul>
+        </nav>
+        <!-- <div class="form-group pull-left">
+
           <a class="btn btn-lg button-transparent" href="submarines/new" style="color: white">
             Become a Host
+          </a>
+          <a class="btn btn-lg button-transparent" href="bookings" style="color: white" >
+            Log in
           </a>
           <a class="btn btn-lg button-transparent" href="ports/new" style="color: white">
             Add a port
           </a>
-          <a class="btn btn-lg button-transparent" href="bookings" style="color: white">
+          <a class="btn btn-lg button-transparent" href="user_booking/:user_id" style="color: white">
             My bookings
           </a>
-        </div>
+        </div> -->
       </div>
     </div>
+
     <div class="row">
       <div class="col-xs-12">
-        <h1>BONING IN THE OCEAN</h1>
-        <br />
-        <h3>Book submarines from local hosts in 191+ countries and experience a place from another world.</h3>
+        <h1 class="homepage-title">Niveau Riche</h1>
+        <h3 class="homepage-undertitle">Book submarines from local hosts and experience living in the ocean.</h3>
       </div>
     </div>
   </div>
@@ -67,12 +87,14 @@
 <div class="container">
   <div class="row">
     <% @ports.each do |port| %>
-      <div class="col-md-4 col-sm-6">
-        <div class="panel panel-default">
-          <%= image_tag(port.image_url, {class: "center-block", style:"width: 100%; height: auto"}) %>
-          <%= link_to "Show #{port.name}",  controller: "ports", action: "show", id: port.id %>
+      <%= link_to(controller: "ports", action: "show", id: port.id) do %>
+        <div class="col-md-4 col-sm-6">
+          <div class="panel panel-default">
+            <%= image_tag(port.image_url, {class: "center-block", style:"width: 100%; height: auto"}) %>
+            <%= port.name %>
+          </div>
         </div>
-      </div>
+      <% end %>
     <% end %>
   </div>
 </div>

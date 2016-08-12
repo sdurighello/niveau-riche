@@ -125,3 +125,11 @@ booking_amsterdam3 = Booking.create(
   end_at: Date.new(2016, 10, 31),
   total_price: 1800*15
 )
+
+
+#User seeds, copied from the postal exercise N.B.
+User.delete_all
+
+frank = User.create( email: 'frank@ex.com', password: 'abcd1234' )
+alice = User.create( email: 'alice@ex.com', password: 'abcd1234' )
+anton = User.create( email: 'anton@ex.com', password: 'abcd1234' )
