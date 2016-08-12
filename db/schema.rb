@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160811193327) do
+ActiveRecord::Schema.define(version: 20160812114430) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,7 +45,9 @@ ActiveRecord::Schema.define(version: 20160811193327) do
     t.integer  "port_id"
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
+    t.integer  "user_id"
     t.index ["port_id"], name: "index_submarines_on_port_id", using: :btree
+    t.index ["user_id"], name: "index_submarines_on_user_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -68,4 +70,5 @@ ActiveRecord::Schema.define(version: 20160811193327) do
   add_foreign_key "bookings", "submarines"
   add_foreign_key "bookings", "users"
   add_foreign_key "submarines", "ports"
+  add_foreign_key "submarines", "users"
 end

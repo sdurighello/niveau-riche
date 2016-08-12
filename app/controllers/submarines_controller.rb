@@ -25,7 +25,7 @@ class SubmarinesController < ApplicationController
   # POST /submarines.json
   def create
     @submarine = Submarine.new(submarine_params)
-
+    @submarine.user = current_user
     respond_to do |format|
       if @submarine.save
         format.html { redirect_to @submarine, notice: 'Submarine was successfully created.' }
@@ -69,6 +69,6 @@ class SubmarinesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def submarine_params
-      params.require(:submarine).permit(:name, :type_submarine, :price_day, :image_url, :description, :max_number_of_guests, :port_id)
+      params.require(:submarine).permit(:name, :type_submarine, :price_day, :image_url, :description, :max_number_of_guests, :port_id, :user_id)
     end
 end
