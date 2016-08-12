@@ -47,6 +47,11 @@ class PortsController < ApplicationController
       params[:desired_end_at][:month].to_i,
       params[:desired_end_at][:day].to_i)
 
+    if @desired_start_at == @desired_end_at
+      @error_message = 'You have to rent your submarine for at least one night.'
+      redirect_to :back
+    end
+
     @submarines = @port.check_available_submarines(@port, @desired_start_at,
       @desired_end_at)
   end
