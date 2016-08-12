@@ -1,45 +1,22 @@
 <p id="notice"><%= notice %></p>
+
+<nav class="navbar-inverse" style="margin: 0">
+  <div class="container">
+    <ul class="nav navbar-nav navbar-right">
+      <% if !user_signed_in? %>
+          <li><%= link_to "Log In", new_user_session_path, class: "btn button-transparent navbar-btn" %></li>
+      <% else %>
+          <li><span class="navbar-text"><%= current_user.email %></span></li>
+          <li><%= link_to "My Bookings", controller: "bookings", action: "user", user_id: current_user, class: "btn button-transparent navbar-btn" %></li>
+          <li><%= link_to "Become a host", new_submarine_path, class: "btn button-transparent navbar-btn" %></li>
+          <li><%= link_to "Log Out", destroy_user_session_path, :method => :delete, class: "btn button-transparent navbar-btn" %></li>
+      <% end %>
+    </ul>
+  </div>
+</nav>
+
 <div class="homepage-jumbotron">
   <div class="container text-center">
-
-    <div class="row">
-      <div class="col-xs-2">
-
-      </div>
-
-      <div class="col-xs-10">
-        <nav>
-          <ul class="nav navbar-nav">
-          </ul>
-          <ul class="nav navbar-nav navbar-right">
-              <% if !user_signed_in? %>
-                  <li><%= link_to "Log In", new_user_session_path %></li>
-              <% else %>
-                  <li><span class="navbar-text"><%= current_user.email %></span></li>
-                  <li><%= link_to "My Bookings", controller: "bookings", action: "user", user_id: current_user %></li>
-                  <li><%= link_to "Become a host", new_submarine_path %></li>
-                  <li><%= link_to "Log Out", destroy_user_session_path, :method => :delete %></li>
-            <% end %>
-          </ul>
-        </nav>
-        <!-- <div class="form-group pull-left">
-
-          <a class="btn btn-lg button-transparent" href="submarines/new" style="color: white">
-            Become a Host
-          </a>
-          <a class="btn btn-lg button-transparent" href="bookings" style="color: white" >
-            Log in
-          </a>
-          <a class="btn btn-lg button-transparent" href="ports/new" style="color: white">
-            Add a port
-          </a>
-          <a class="btn btn-lg button-transparent" href="user_booking/:user_id" style="color: white">
-            My bookings
-          </a>
-        </div> -->
-      </div>
-    </div>
-
     <div class="row">
       <div class="col-xs-12">
         <h1 class="homepage-title">Niveau Riche</h1>
@@ -48,42 +25,35 @@
     </div>
   </div>
 </div>
-<%= form_tag("/ports/test_availability", method: "post") do %>
-  Port: <%= select("port", "id", Port.all.collect {|p| [ p.name, p.id ] }, {include_blank: '--select departure port'}, :required => true) %>
-  <!-- <%= text_field_tag(:desired_port) %> -->
-  Start date: <%= select_date Date.today, prefix: :desired_start_at %>
-  <!-- <%= text_field_tag(:desired_start_at) %> -->
-  End date: <%= select_date Date.today, prefix: :desired_end_at %>
-  <!-- <%= text_field_tag(:desired_end_at) %> -->
-  Number of guests: <%= text_field_tag(:desired_num_guests) %>
-  <%= submit_tag("Test Search") %>
-<% end %>
-<div class="row homepage-band center-block">
+
+<div class="row homepage-band center-block text-center">
   <div class="col-xs-12">
-    <div class="">
-      <form class="form">
-        <div class="col-xs-3">
-          <input type="text" class="form-control" placeholder="Port">
+    <%= form_tag("/ports/test_availability", method: "post", class: 'form-inline') do %>
+      <div class="form-group">
+        Port: <%= select("port", "id", Port.all.collect {|p| [ p.name, p.id ] }, {include_blank: '--select departure port'}, {:required => true, class: 'form-control'}) %>
+      </div>
+      &nbsp;
+      <div class="form-group">
+        <div class="">
+          Start date: <%= select_date Date.today, {}, {prefix: :desired_start_at, class: 'form-control'} %>
         </div>
-        <div class="col-xs-2">
-          <input type="text" class="form-control" placeholder="From">
-        </div>
-        <div class="col-xs-2">
-          <input type="text" class="form-control" placeholder="To">
-        </div>
-        <div class="col-xs-2">
-          <input type="text" class="form-control" placeholder="1 Guest">
-        </div>
-        <div class="col-xs-2">
-
-          <%= link_to 'Search', {}, {class: "btn button-transparent"} %>
-
-        </div>
-      </form>
-    </div>
+      </div>
+      &nbsp;
+      <div class="form-group">
+        End date: <%= select_date Date.today, {}, {prefix: :desired_end_at, class: 'form-control'} %>
+      </div>
+      &nbsp;
+      <div class="form-group">
+        Number of guests: <%= number_field_tag(:desired_num_guests, class: 'form-control') %>
+      </div>
+      &nbsp;
+      <div class="form-group">
+        <%= submit_tag("Search", class: 'btn button-transparent') %>
+      </div>
+    <% end %>
   </div>
 </div>
-<br>
+<br />
 <div class="container">
   <div class="row">
     <% @ports.each do |port| %>
