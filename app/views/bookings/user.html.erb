@@ -2,11 +2,31 @@
 
 <br>
 
-<ol>
-  <% @bookings.each do |booking| %>
-    <li><%= booking.submarine %>, <%= booking.start_at %>/<%= booking.end_at %>,   €<%= booking.total_price %>,-</li>
-  <% end %>
-</ol>
+<table>
+  <thead>
+    <tr>
+      <th>Submarine</th>
+      <th>Start at</th>
+      <th>End at</th>
+      <th>Total price</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @bookings.each do |booking| %>
+      <tr>
+        <td><%= booking.submarine.name %></td>
+        <td><%= booking.start_at %></td>
+        <td><%= booking.end_at %></td>
+        <td><%= booking.total_price %></td>
+        <td><%= link_to 'Show', booking %></td>
+        <td><%= link_to 'Edit', edit_booking_path(booking) %></td>
+        <td><%= link_to 'Destroy', booking, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
 <br>
 
