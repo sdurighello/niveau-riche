@@ -16,22 +16,26 @@
 
     <div class="field">
       <%= f.label :submarine  %>
-      <%= f.collection_select :submarine_id, Submarine.order(:name),:id,:name, include_blank: true %>
+      <%= f.hidden_field :submarine_id %>
+      <%= @booking.submarine.name  %>
     </div>
 
     <div class="field">
       <%= f.label :start_at %>
-      <%= f.date_select :start_at %>
+      <%= f.hidden_field :start_at %>
+      <%= @booking.start_at %>
     </div>
 
     <div class="field">
       <%= f.label :end_at %>
-      <%= f.date_select :end_at %>
+      <%= f.hidden_field :end_at %>
+      <%= @booking.end_at %>
     </div>
 
     <div class="field">
       <%= f.label :total_price %>
-      <%= f.number_field :total_price %>
+      <%= f.hidden_field :total_price %>
+      <%= @booking.total_price %>
     </div>
 
     <div class="actions">
