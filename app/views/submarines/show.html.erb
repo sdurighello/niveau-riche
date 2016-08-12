@@ -35,6 +35,12 @@
   <%= @submarine.port %>
 </p>
 
-<%= link_to 'Edit', edit_submarine_path(@submarine) %> |
-<%= link_to 'Submarines', submarines_path %>
-<%= link_to 'Home', homepage_path %>
+<% if user_signed_in? %>
+  <%= link_to "Book this submarine", new_booking_path %>|
+  <%= link_to 'Edit', edit_submarine_path(@submarine) %> |
+  <%= link_to 'Submarines', submarines_path %> |
+  <%= link_to 'Home', homepage_path %>
+<% else %>
+  <%= link_to 'Submarines', submarines_path %> |
+  <%= link_to 'Home', homepage_path %>
+<% end %>
