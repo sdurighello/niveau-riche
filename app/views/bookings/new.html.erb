@@ -2,7 +2,7 @@
 
 <% if user_signed_in? %>
   <%= render 'form', booking: @booking %>
-  <%= link_to 'Back', bookings_path %>
+  <%= link_to "My Bookings", controller: "bookings", action: "user", user_id: current_user %>
 <% else %>
   <%= link_to "Log In", new_user_session_path %>
 <% end %>
