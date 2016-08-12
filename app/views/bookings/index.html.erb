@@ -16,7 +16,7 @@
   <tbody>
     <% @bookings.each do |booking| %>
       <tr>
-        <td><%= booking.submarine %></td>
+        <td><%= booking.submarine.name %></td>
         <td><%= booking.start_at %></td>
         <td><%= booking.end_at %></td>
         <td><%= booking.total_price %></td>
